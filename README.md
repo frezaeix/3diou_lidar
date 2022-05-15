@@ -2,7 +2,13 @@
 
 ## How does the code work? workflow
 
-
+### Data Preparation including augmentation
+* build_dataloader
+  * check dataset name and create an object from its class 
+    * dd   
+  * create sampler
+  * create dataloader
+* 
 
 
 
