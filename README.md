@@ -2,17 +2,55 @@
 
 ## How does the code work? workflow
 
-### Data Preparation including augmentation
+### 0 Data Preparation including augmentation
 * build_dataloader
   * check dataset name and create an object from its class 
-    * dd   
+    * details of preprocessing and augmentation?
+    * what is PointFeatureEncoder? It encodes raw point cloud to something else depends on the type of encoding
+    * what does DataAugmentor do?
+      * gt_sampling: add more objects in a frame sampling from all objects of datasets. for example it add at least 5 car in a frame... 
+      * random_world_flip
+      * random_world_rotation
+      * random_world_scaling  
+    * what does DATA_PROCESSOR do? se class DataProcessor
+      * transform_points_to_voxels
+      * shuffle_points    
+      * sample_points
+      * mask_points_and_boxes_outside_range
+   * __all__ = {
+    'DatasetTemplate': DatasetTemplate,
+    'KittiDataset': KittiDataset,
+    'KittiDatasetSSL': KittiDatasetSSL,
+    'NuScenesDataset': NuScenesDataset,
+    'WaymoDataset': WaymoDataset
+}
+     * KittiDataset: 
+
   * create sampler
+    * details of sampling strategy  
   * create dataloader
 * 
 
+### 0 Build the model
+* build_network
+  * check model name and create an object from its class - dataset is passed to the model  
+  * 
+* 
 
+### 0 Build Optimizer
+* build_optimizer
+* build_scheduler
 
+### 1 train_model (model, optimizer, train_loader, model_func, ...)
+* train_one_epoch (model, optimizer, train_loader, model_func, ...)
+  * model.train()
+  * optimizer.zero_grad()
+  * loss, tb_dict, disp_dict = model_func(model, batch)
+  * loss.backward()
+  * clip_grad_norm_(model.parameters(), optim_cfg.GRAD_NORM_CLIP)
+  * optimizer.step()
 
+### 1.1 model_func = model_fn_decorator() = Forward
 
 
 
