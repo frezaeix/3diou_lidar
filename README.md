@@ -2,17 +2,17 @@
 
 ## How does the code work? workflow
 
-### 0 Data Preparation including augmentation
-* build_dataloader
-  * check dataset name and create an object from its class 
-    * details of preprocessing and augmentation?
-    * what is PointFeatureEncoder? It encodes raw point cloud to something else depends on the type of encoding
-    * what does DataAugmentor do?
+### 0 Data Preparation including data augmentation
+* Build_dataloader
+  * Check dataset name and create an object from its class 
+    * Details of preprocessing and augmentation?
+    * What is PointFeatureEncoder? It encodes raw point cloud to something else depends on the type of encoding
+    * What does DataAugmentor do?
       * gt_sampling: add more objects in a frame sampling from all objects of datasets. for example it add at least 5 car in a frame... 
       * random_world_flip
       * random_world_rotation
       * random_world_scaling  
-    * what does DATA_PROCESSOR do? se class DataProcessor
+    * What does DATA_PROCESSOR do? see class DataProcessor
       * transform_points_to_voxels
       * shuffle_points    
       * sample_points
@@ -33,7 +33,7 @@
 
 ### 0 Build the model
 * build_network
-  * check model name and create an object from its class - dataset is passed to the model  
+  * Check model name and create an object from its class - dataset is passed to the model  
   * 
 * 
 
